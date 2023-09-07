@@ -1,0 +1,14 @@
+/* styles.css */
+
+/* Styling for the navigation menu */
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav li {
+    margin-right: 15px;
+}
+
+.navbar-nav li:last-child {
+    margin-right: 0;
+}

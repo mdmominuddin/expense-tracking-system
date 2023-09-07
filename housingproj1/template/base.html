@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Housing Society Financial Management</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+    <style>
+        /* Custom CSS for footer */
+        .footer {
+            color: #ffffff;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: #ffffff;
+        }
+
+        .container {
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-secondary">
+        <a class="navbar-brand" href="{% url 'home' %}">Financial Management</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'enter_contribution' %}">Enter Contribution</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'enter_expense' %}">Enter Expense</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'summary' %}">Summary</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'month_wise_audit' %}">Month-wise Audit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'category_wise_audit' %}">Category-wise Audit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'item_wise_audit' %}">Item-wise Audit</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div class="footer mt-3 bg-secondary">
+        <footer class="text-center">
+            <p>Admins, <a class="text-danger" href="{% url 'admin:index' %}">click here</a> to log in to the admin panel.</p>
+            <p>Copyright <strong>rapidsystem</strong>, email: mmomin.9108@gmail.com, phone: +8801928040575</p>
+        </footer>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+</body>
+</html>
